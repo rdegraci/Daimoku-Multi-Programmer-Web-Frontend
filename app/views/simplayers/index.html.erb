@@ -1,0 +1,18 @@
+<h1>Listing simplayers</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% @simplayers.each do |simplayer| %>
+  <tr>
+    <td><%= link_to 'Show', simplayer %></td>
+    <td><%= link_to 'Edit', edit_simplayer_path(simplayer) %></td>
+    <td><%= link_to 'Destroy', simplayer, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New simplayer', new_simplayer_path %>

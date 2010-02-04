@@ -1,0 +1,12 @@
+<h1>Editing simwest</h1>
+
+<% form_for(@simwest) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @simwest %> |
+<%= link_to 'Back', simwests_path %>

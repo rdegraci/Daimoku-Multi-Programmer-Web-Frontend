@@ -1,0 +1,12 @@
+<h1>Editing simmap</h1>
+
+<% form_for(@simmap) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @simmap %> |
+<%= link_to 'Back', simmaps_path %>

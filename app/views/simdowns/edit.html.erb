@@ -1,0 +1,12 @@
+<h1>Editing simdown</h1>
+
+<% form_for(@simdown) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @simdown %> |
+<%= link_to 'Back', simdowns_path %>

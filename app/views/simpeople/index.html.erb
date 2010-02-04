@@ -1,0 +1,18 @@
+<h1>Listing simpeople</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% @simpeople.each do |simperson| %>
+  <tr>
+    <td><%= link_to 'Show', simperson %></td>
+    <td><%= link_to 'Edit', edit_simperson_path(simperson) %></td>
+    <td><%= link_to 'Destroy', simperson, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New simperson', new_simperson_path %>

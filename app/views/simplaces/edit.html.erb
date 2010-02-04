@@ -1,0 +1,12 @@
+<h1>Editing simplace</h1>
+
+<% form_for(@simplace) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @simplace %> |
+<%= link_to 'Back', simplaces_path %>

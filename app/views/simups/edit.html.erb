@@ -1,0 +1,12 @@
+<h1>Editing simup</h1>
+
+<% form_for(@simup) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @simup %> |
+<%= link_to 'Back', simups_path %>

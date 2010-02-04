@@ -1,0 +1,2 @@
+module SimplacesHelper
+end

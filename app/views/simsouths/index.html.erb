@@ -1,0 +1,18 @@
+<h1>Listing simsouths</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% @simsouths.each do |simsouth| %>
+  <tr>
+    <td><%= link_to 'Show', simsouth %></td>
+    <td><%= link_to 'Edit', edit_simsouth_path(simsouth) %></td>
+    <td><%= link_to 'Destroy', simsouth, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New simsouth', new_simsouth_path %>

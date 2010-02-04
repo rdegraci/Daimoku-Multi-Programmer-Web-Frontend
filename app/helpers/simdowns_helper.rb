@@ -1,0 +1,2 @@
+module SimdownsHelper
+end

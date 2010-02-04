@@ -1,0 +1,11 @@
+<h1>New simthing</h1>
+
+<% form_for(@simthing) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', simthings_path %>

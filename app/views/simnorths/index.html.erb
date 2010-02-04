@@ -1,0 +1,18 @@
+<h1>Listing simnorths</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% @simnorths.each do |simnorth| %>
+  <tr>
+    <td><%= link_to 'Show', simnorth %></td>
+    <td><%= link_to 'Edit', edit_simnorth_path(simnorth) %></td>
+    <td><%= link_to 'Destroy', simnorth, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New simnorth', new_simnorth_path %>

@@ -1,0 +1,18 @@
+<h1>Listing simthings</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% @simthings.each do |simthing| %>
+  <tr>
+    <td><%= link_to 'Show', simthing %></td>
+    <td><%= link_to 'Edit', edit_simthing_path(simthing) %></td>
+    <td><%= link_to 'Destroy', simthing, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New simthing', new_simthing_path %>

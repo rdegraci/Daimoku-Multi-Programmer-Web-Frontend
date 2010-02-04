@@ -1,0 +1,2 @@
+module SimupsHelper
+end

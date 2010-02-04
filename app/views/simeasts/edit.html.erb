@@ -1,0 +1,12 @@
+<h1>Editing simeast</h1>
+
+<% form_for(@simeast) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @simeast %> |
+<%= link_to 'Back', simeasts_path %>

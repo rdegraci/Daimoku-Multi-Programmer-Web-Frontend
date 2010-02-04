@@ -1,0 +1,18 @@
+<h1>Listing simmaps</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% @simmaps.each do |simmap| %>
+  <tr>
+    <td><%= link_to 'Show', simmap %></td>
+    <td><%= link_to 'Edit', edit_simmap_path(simmap) %></td>
+    <td><%= link_to 'Destroy', simmap, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New simmap', new_simmap_path %>

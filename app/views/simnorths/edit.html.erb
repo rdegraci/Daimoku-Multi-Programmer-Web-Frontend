@@ -1,0 +1,12 @@
+<h1>Editing simnorth</h1>
+
+<% form_for(@simnorth) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @simnorth %> |
+<%= link_to 'Back', simnorths_path %>

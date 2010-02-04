@@ -1,0 +1,12 @@
+<h1>Editing simplayer</h1>
+
+<% form_for(@simplayer) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @simplayer %> |
+<%= link_to 'Back', simplayers_path %>

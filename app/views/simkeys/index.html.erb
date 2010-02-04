@@ -1,0 +1,18 @@
+<h1>Listing simkeys</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% @simkeys.each do |simkey| %>
+  <tr>
+    <td><%= link_to 'Show', simkey %></td>
+    <td><%= link_to 'Edit', edit_simkey_path(simkey) %></td>
+    <td><%= link_to 'Destroy', simkey, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New simkey', new_simkey_path %>
