@@ -1,4 +1,4 @@
-require '../Daimoku-Rails/app/models/simcharacter.rb'
+require '/usr/local/Daimoku-Rails/app/models/simcharacter.rb'
 
 class Simperson < ActiveRecord::Base
   belongs_to :simplace

@@ -1,4 +1,4 @@
-require '../daimoku-rails/app/models/simplayer.rb'
+require '/usr/local/daimoku-rails/app/models/simplayer.rb'
 class Simplayer < ActiveRecord::Base
   has_many :simcharacters
   validates_associated :simcharacters
