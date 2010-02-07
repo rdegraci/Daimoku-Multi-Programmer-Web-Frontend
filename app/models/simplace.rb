@@ -1,7 +1,7 @@
 class Simplace < ActiveRecord::Base
-  has_many :simpeople 
+  has_many :simpeople, :dependent => :nullify 
   belongs_to :simmap
-  has_many :simthings
+  has_many :simthings, :dependent => :destroy
 
   has_one :simnorth
   has_one :simsouth

@@ -1,6 +1,6 @@
 require '/usr/local/daimoku-rails/app/models/simplayer.rb'
 class Simplayer < ActiveRecord::Base
-  has_many :simcharacters
+  has_many :simcharacters, :dependent => :destroy
   validates_associated :simcharacters
   
   validates_length_of :name, :maximum=>30

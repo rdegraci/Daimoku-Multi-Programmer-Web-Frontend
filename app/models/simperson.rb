@@ -2,7 +2,7 @@ require '/usr/local/Daimoku-Rails/app/models/simcharacter.rb'
 
 class Simperson < ActiveRecord::Base
   belongs_to :simplace
-  has_many :simthings
+  has_many :simthings, :dependent => :destroy
   belongs_to :simcharacter
   
   #Do not validate, yet. Consider giving a Person a set of things before saving the person, initially.

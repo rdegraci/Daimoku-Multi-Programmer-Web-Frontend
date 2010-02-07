@@ -5,7 +5,8 @@ class Simcharacter < ActiveRecord::Base
   
   belongs_to :simplayer
   
-  has_one :simperson
+  has_one :simperson, :dependent => :destroy
+
   # validates_associated :Simperson
   # 
   # validates_length_of :name, :maximum=>30

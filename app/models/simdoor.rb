@@ -1,5 +1,5 @@
 class Simdoor < ActiveRecord::Base
-  has_one :simkey
+  has_one :simkey, :dependent => :destroy
  
   belongs_to :simnorth
   belongs_to :simsouth
