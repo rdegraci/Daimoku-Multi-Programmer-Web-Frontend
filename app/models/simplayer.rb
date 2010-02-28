@@ -1,15 +1,15 @@
 require '/usr/local/daimoku-rails/app/models/simplayer.rb'
 class Simplayer < ActiveRecord::Base
-  has_many :simcharacters, :dependent => :destroy
+  has_many :simcharacters, :dependent => :delete_all
   validates_associated :simcharacters
   
-  validates_length_of :name, :maximum=>30
+  validates_length_of :name, :within => 0..60
   validates_uniqueness_of :name
   
-  validates_length_of :password, :maximum=>30
+  validates_length_of :password, :within => 0..250
   validates_presence_of :password
   
-  validates_length_of :email, :maximum=>40
+  validates_length_of :email, :within => 0..60
   validates_presence_of :password
 
   validates_uniqueness_of :sessionid
@@ -49,5 +49,5 @@ class Simplayer < ActiveRecord::Base
       aplayer.save!
     end
   end
-  
+
 end

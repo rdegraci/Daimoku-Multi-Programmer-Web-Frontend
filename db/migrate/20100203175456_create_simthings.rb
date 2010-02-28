@@ -10,7 +10,7 @@ class CreateSimthings < ActiveRecord::Migration
       t.column :simplace_id, :integer
 
       t.column :creatorname, :string	#name of the creator
-      t.column :uniquid, :string	    #unique identifier
+      t.column :uniqueid, :string	#unique identifier
 
       t.column :strength, :integer	#0 means destroyable, 100 means indestructible
       t.column :wieght, :integer	#0 means no wieght

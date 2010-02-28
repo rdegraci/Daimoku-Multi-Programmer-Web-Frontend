@@ -1,7 +1,7 @@
 class Simplace < ActiveRecord::Base
   has_many :simpeople, :dependent => :nullify 
   belongs_to :simmap
-  has_many :simthings, :dependent => :destroy
+  has_many :simthings, :dependent => :delete_all
 
   has_one :simnorth
   has_one :simsouth
@@ -10,12 +10,12 @@ class Simplace < ActiveRecord::Base
   has_one :simup
   has_one :simdown
   
-  validates_length_of :name, :maximum=>30
+  validates_length_of :name, :within => 0..60
   validates_presence_of :name
-  validates_length_of :description, :maximum=>1024
+  validates_length_of :description, :within => 0..1024
   validates_presence_of :description
-  validates_length_of :script, :maximum=>4096
-  validates_length_of :creatorname, :maximum=>30
+  validates_length_of :script, :within => 0..4096
+  validates_length_of :creatorname, :within => 0..60
   
   def randid
     abc = %{ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz}

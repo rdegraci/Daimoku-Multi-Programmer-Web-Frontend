@@ -6,6 +6,7 @@ class CreateSimplaces < ActiveRecord::Migration
       t.column :description, :text
       t.column :script, :text
 
+      t.column :uniqueid, :text
       t.column :simmap_id, :integer
 
       t.column :creatorname, :string #name of the creator

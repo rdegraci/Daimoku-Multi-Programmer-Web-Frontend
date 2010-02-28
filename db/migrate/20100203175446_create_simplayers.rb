@@ -7,7 +7,8 @@ class CreateSimplayers < ActiveRecord::Migration
       t.column :email, :text
       t.column :sessionid, :text
       t.column :online, :boolean  #true if logged in
-      
+      t.column :reaped, :boolean #true if destroyed      
+      t.column :uniqueid, :text
       t.timestamps
     end
   end

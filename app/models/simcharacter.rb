@@ -5,7 +5,7 @@ class Simcharacter < ActiveRecord::Base
   
   belongs_to :simplayer
   
-  has_one :simperson, :dependent => :destroy
+  has_one :simperson, :dependent => :delete
 
   # validates_associated :Simperson
   # 
@@ -149,6 +149,36 @@ class Simcharacter < ActiveRecord::Base
     }
 
   end
+
+
+  # Return sessionids of Characters with min/max hp
+  def self.process_characters(min, max)
+    chars = find(:all, :conditions => ['hp > ? and hp < ?', min, max])
+    sessions = []
+    chars.each do |cc|
+      cc.hp = cc.hp + 25
+      cc.hp = cc.hitpoints if cc.hp > cc.hitpoints
+      cc.save!
+      info = []
+      info << cc.simplayer.sessionid
+      info << cc.hp
+      info << cc.hitpoints
+      sessions << info
+    end
+    sessions
+  end
+
+
+  # Returns sessionid for Characters with hp < 1
+  def self.reap_dead_player_sessionids
+    chars = find(:all, :conditions => ['hp < ?', 1])
+    sessions = []
+    chars.each do |cc|
+      sessions << cc.simplayer.sessionid
+    end
+    sessions
+  end
+
 
   # Returns the sessionids of everyone in the same room, that is also online  
   def current_room_sessionids 
