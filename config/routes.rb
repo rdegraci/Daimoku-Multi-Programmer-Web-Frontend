@@ -1,4 +1,18 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :sim_scripts
+
+  map.resources :sim_variables
+
+  map.resources :simpeople
+
+  map.resources :simcharacters
+
+  map.resources :sim_klasses
+
+  map.resources :simplayers
+
+  map.resources :sim_modules
+
   map.resources :simwests
 
   map.resources :simups

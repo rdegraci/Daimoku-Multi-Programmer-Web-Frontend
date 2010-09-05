@@ -2,10 +2,44 @@
 
 <table>
   <tr>
+    <th>Name</th>
+    <th>Cclass</th>
+    <th>Race</th>
+    <th>Description</th>
+    <th>Level</th>
+    <th>Exp</th>
+    <th>Ac</th>
+    <th>Hp</th>
+    <th>Sp</th>
+    <th>Constitution</th>
+    <th>Size</th>
+    <th>Dexterity</th>
+    <th>Strength</th>
+    <th>Intelligence</th>
+    <th>Wisdom</th>
+    <th>Charisma</th>
+    <th>Moneybag</th>
   </tr>
 
 <% @simcharacters.each do |simcharacter| %>
   <tr>
+    <td><%=h simcharacter.name %></td>
+    <td><%=h simcharacter.cclass %></td>
+    <td><%=h simcharacter.race %></td>
+    <td><%=h simcharacter.description %></td>
+    <td><%=h simcharacter.level %></td>
+    <td><%=h simcharacter.exp %></td>
+    <td><%=h simcharacter.ac %></td>
+    <td><%=h simcharacter.hp %></td>
+    <td><%=h simcharacter.sp %></td>
+    <td><%=h simcharacter.constitution %></td>
+    <td><%=h simcharacter.size %></td>
+    <td><%=h simcharacter.dexterity %></td>
+    <td><%=h simcharacter.strength %></td>
+    <td><%=h simcharacter.intelligence %></td>
+    <td><%=h simcharacter.wisdom %></td>
+    <td><%=h simcharacter.charisma %></td>
+    <td><%=h simcharacter.moneybag %></td>
     <td><%= link_to 'Show', simcharacter %></td>
     <td><%= link_to 'Edit', edit_simcharacter_path(simcharacter) %></td>
     <td><%= link_to 'Destroy', simcharacter, :confirm => 'Are you sure?', :method => :delete %></td>

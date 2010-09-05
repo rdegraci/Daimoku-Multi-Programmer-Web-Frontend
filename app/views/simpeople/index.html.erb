@@ -2,10 +2,12 @@
 
 <table>
   <tr>
+    <th>Script</th>
   </tr>
 
 <% @simpeople.each do |simperson| %>
   <tr>
+    <td><%=h simperson.script %></td>
     <td><%= link_to 'Show', simperson %></td>
     <td><%= link_to 'Edit', edit_simperson_path(simperson) %></td>
     <td><%= link_to 'Destroy', simperson, :confirm => 'Are you sure?', :method => :delete %></td>

@@ -1,0 +1,22 @@
+<p>
+  <b>Name:</b>
+  <%=h @sim_module.name %>
+</p>
+
+<p>
+  <b>Source:</b>
+  <pre>
+  <%=h @sim_module.source %>
+  </pre>
+</p>
+
+<p>
+  <b>Importscript:</b>
+  <pre>
+  <%=h @sim_module.importscript %>
+  </pre>
+</p>
+
+
+<%= link_to 'Edit', edit_sim_module_path(@sim_module) %> |
+<%= link_to 'Back', sim_modules_path %>

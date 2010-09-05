@@ -2,10 +2,16 @@
 
 <table>
   <tr>
+    <th>Name</th>
+    <th>Online</th>
+    <th>Email</th>
   </tr>
 
 <% @simplayers.each do |simplayer| %>
   <tr>
+    <td><%=h simplayer.name %></td>
+    <td><%=h simplayer.online %></td>
+    <td><%=h simplayer.email %></td>
     <td><%= link_to 'Show', simplayer %></td>
     <td><%= link_to 'Edit', edit_simplayer_path(simplayer) %></td>
     <td><%= link_to 'Destroy', simplayer, :confirm => 'Are you sure?', :method => :delete %></td>

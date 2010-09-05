@@ -1,0 +1,22 @@
+<p>
+  <b>Name:</b>
+  <%=h @sim_variable.name %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <pre>
+  <%=h @sim_variable.value %>
+  </pre>
+</p>
+
+<p>
+  <b>Importscript:</b>
+  <pre>
+  <%=h @sim_variable.importscript %>
+  </pre>
+</p>
+
+
+<%= link_to 'Edit', edit_sim_variable_path(@sim_variable) %> |
+<%= link_to 'Back', sim_variables_path %>

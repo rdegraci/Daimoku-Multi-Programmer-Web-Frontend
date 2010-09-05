@@ -238,7 +238,22 @@ class Simcharacter < ActiveRecord::Base
     [place.name, place.description]
   end
   
-  
+  def try(verb_name, text_line, name, io)
+    words = text.line.split(' ')
+    things = simperson.simthings
+    if things.size > 0 then
+      things.each do |t|
+        eval("t.#{verb_name}(text_line)") if words.first == t.name
+      end
+      return true
+    else
+      io.puts
+      io.puts "You don't see anything to #{verb_name}."
+      io.puts
+      return false
+    end
+  end
+    
   def inventory(name, io)
     things = simperson.simthings
     io.puts "You are carrying: "
@@ -269,6 +284,33 @@ class Simcharacter < ActiveRecord::Base
     else
       return false
     end
+  end
+  
+  def examine(item, io)
+    things = simperson.simthings
+    if things.size > 0 then
+      things.each do |t|
+        if t.name == item then
+          io.puts
+          io.puts "#{item.description}"
+          io.puts
+          return true
+        end
+      end
+    else
+      room_id = simperson.simplace_id
+      thing = Simthing.find(:first, :conditions => ['name = ? & simplace_id = ?', item, room_id])
+      if thing then
+        io.puts
+        io.puts "#{item.description}"
+        io.puts
+        return true
+      end
+    end
+    io.puts
+    io.puts "You don't see any #{item} to examine."
+    io.puts
+    return false
   end
 
   #create a software writer and place them into the white room

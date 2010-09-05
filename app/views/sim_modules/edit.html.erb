@@ -1,0 +1,24 @@
+<h1>Editing sim_module</h1>
+
+<% form_for(@sim_module) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :source %><br />
+    <%= f.text_area :source %>
+  </p>
+  <p>
+    <%= f.label :importscript %><br />
+    <%= f.text_area :importscript %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @sim_module %> |
+<%= link_to 'Back', sim_modules_path %>

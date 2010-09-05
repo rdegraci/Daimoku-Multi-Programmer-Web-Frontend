@@ -1,3 +1,5 @@
+require '/usr/local/Daimoku-Server/support.rb'
+
 class Simthing < ActiveRecord::Base
   belongs_to :simperson
   belongs_to :simplace
@@ -14,8 +16,8 @@ class Simthing < ActiveRecord::Base
   validates_presence_of :strength
   validates_inclusion_of :strength, :in => 0..100
   
-  validates_presence_of :wieght
-  validates_inclusion_of :wieght, :in => 0..2000
+  validates_presence_of :weight
+  validates_inclusion_of :weight, :in => 0..2000
 
   # validates_presence_of :portable
   # validates_presence_of :visible
@@ -37,15 +39,25 @@ class Simthing < ActiveRecord::Base
     thing.script = script
     thing.creatorname = io.name
     thing.strength = 50
-    thing.wieght = 10
+    thing.weight = 10
     thing.portable = true
     thing.visible = true
     thing.container = false
     thing.platform = false
     thing.clothing = false
-    thing.uniquid = Simthing.randid
+    thing.uniqueid = Simthing.randid
     thing.save!
     thing
+  end
+  
+  # Make Database SimThing
+  def new_klass(klass_name, klass_source)
+    klass_source.gsub!("#{klass_name}", "#{klass_name} < Simthing")
+    klass = %{
+    #{klass_source}
+    }
+    TheSource.evaluate klass
+    eval("TheSystem.request #{klass_name}")
   end
     
 end

@@ -13,7 +13,7 @@ class CreateSimthings < ActiveRecord::Migration
       t.column :uniqueid, :string	#unique identifier
 
       t.column :strength, :integer	#0 means destroyable, 100 means indestructible
-      t.column :wieght, :integer	#0 means no wieght
+      t.column :weight, :integer	#0 means no weight
 
       t.column :portable, :boolean
       t.column :visible, :boolean

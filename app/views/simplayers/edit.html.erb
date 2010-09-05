@@ -4,6 +4,18 @@
   <%= f.error_messages %>
 
   <p>
+    <%= f.label :name %><br />
+    <%= f.text_area :name %>
+  </p>
+  <p>
+    <%= f.label :online %><br />
+    <%= f.check_box :online %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_area :email %>
+  </p>
+  <p>
     <%= f.submit 'Update' %>
   </p>
 <% end %>

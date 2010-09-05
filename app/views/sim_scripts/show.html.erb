@@ -1,0 +1,20 @@
+<p>
+  <b>Name:</b>
+  <%=h @sim_script.name %>
+</p>
+
+<p>
+  <b>Source:</b>
+  <pre>
+  <%=h @sim_script.source %>
+  </pre>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%=h @sim_script.comment %>
+</p>
+
+
+<%= link_to 'Edit', edit_sim_script_path(@sim_script) %> |
+<%= link_to 'Back', sim_scripts_path %>

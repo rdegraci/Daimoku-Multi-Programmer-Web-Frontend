@@ -1,0 +1,24 @@
+<h1>Editing sim_klass</h1>
+
+<% form_for(@sim_klass) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :source %><br />
+    <%= f.text_area :source %>
+  </p>
+  <p>
+    <%= f.label :importscript %><br />
+    <%= f.text_area :importscript %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @sim_klass %> |
+<%= link_to 'Back', sim_klasses_path %>

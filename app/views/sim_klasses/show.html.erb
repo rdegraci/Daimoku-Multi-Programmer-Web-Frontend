@@ -1,0 +1,22 @@
+<p>
+  <b>Name:</b>
+  <%=h @sim_klass.name %>
+</p>
+
+<p>
+  <b>Source:</b>
+  <pre>
+  <%=h @sim_klass.source %>
+  </pre>
+</p>
+
+<p>
+  <b>Importscript:</b>
+  <pre>
+  <%=h @sim_klass.importscript %>
+  </pre>
+</p>
+
+
+<%= link_to 'Edit', edit_sim_klass_path(@sim_klass) %> |
+<%= link_to 'Back', sim_klasses_path %>
