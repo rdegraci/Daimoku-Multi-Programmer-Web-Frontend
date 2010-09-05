@@ -1,0 +1,73 @@
+<h1>Daimoku Multi-Programmer Online</h1>
+
+<p>Daimoku Multi-Programmer Online is an environment, or next-generation Ruby Mud, written in Ruby and ActiveRecord and implemented using Why Freaky-Freaky Sandbox. Daimoku allows multiple Ruby programmers to chat, share code and objects in real-time in an EW-Two-style environment.
+	
+<h2>An RPG for Ruby Programmers</h2>
+<p>Daimoku is an RPG for programmers, specifically Ruby programmers. The game interface uses IRB, to speak to another player, use a string literal, for example "hello world", which the game server will display to all Players within the same room. The game world uses a shared IRB, therefore all variables are immediately shared.
+
+
+<hr>
+
+<h1> Current Features</h1>
+
+<h2>Chat</h2>
+<p>Players in the same room can see each others Ruby code, as they are typing the code in, as well as being able to see the IRB evaluation. For privacy, simply move to another empty room.
+
+<h2>Sharing Objects</h2>
+<p>Any objects that are instantiated are automatically shared. Obviously, Players in the same room would be able to see the variable name that holds a reference to the object. This is a great way to teach/hack Ruby.
+
+<h2>In World API</h2>
+<p>The game world has an API consisting of Ruby classes, which are immediately invokable by the Players within the Game World: 
+
+<ul>
+<li> <a href="http://daimoku-rdoc.elitefrontier.org/classes/HardLine.html">HardLine</a> - The HardLine class lets the Player import code into the Simulation imported code is stored into a String and any created Objects and classes are immediately available to all Players within the Simulation if the Classes have been made available by the Architect
+<li> <a href="http://daimoku-rdoc.elitefrontier.org/classes/Thinger.html">Thinger </a> - The Thinger class lets the Player create objects within the game world and assign a Ruby script to that object. 
+<li> <a href="http://daimoku-rdoc.elitefrontier.org/classes/SocketClient.html">SocketClient</a> - The SocketClient class is a line-oriented socket client, that can be used to connect to services on the Internet, from within the Game World. 
+<li> <a href="http://daimoku-rdoc.elitefrontier.org/classes/SocketServer.html">SocketServer</a> - The SocketServer class is the high level class that allows the Player to create a line-oriented TCP server.
+</ul>
+<p>The above classes are available, and additional API classes are under development.
+<h2>Commands:</h2>
+<p>north, south, east, west, up, down, exits, take, drop, inventory, io
+
+<h2>Scripts</h2>
+<p>Almost everything is scriptable: People, Places (rooms), and Things. Scripts may be imported into the game, from the Internet.
+
+<h2>IRB</h2>
+<p>Of course, you get an IRB (interactive Ruby) prompt, so that you can hack Ruby while you play
+	
+	<hr>
+	
+<h1>Future Gameplay</h1>
+
+<h2>System Agent AIs</h2>
+<p>To keep order and help prevent the Players from becoming ?Neo? and hacking the game world, Daimoku will have NPC System Agents that will patrol the system looking for anomalies and combat those players.
+
+<h2>Player Attributes (Programmer vs. Programmer)</h2>
+<p>Players will have hit points, armor class, and will be able to create daemons which will damage or heal other programmers; this leads to an interesting PvP game.
+
+<hr>
+<h1>Developer Roadmap</h1>
+<ul>
+	<li> Implement Combat
+	<li> Implement Agent AI: Agents should be able to detect anomalies and combat players that are attempting to subvert the system.
+</ul>
+
+<p> View the game server <a href="http://daimoku-rdoc.elitefrontier.org/"> documentation </a>
+
+<p>To play or hack:
+<pre>
+	ssh matrix@daimoku.elitefrontier.org
+	
+	The password is:  matrix
+	
+</pre>
+
+<p>Help plan and discuss the future roadmap of Daikomu by joining our  <a href="http://daimoku-forum.elitefrontier.org/">Forum</a>
+
+<p> Interested in improving the game? Download the source, via git, at <a href="http://github.com/rdegraci/Daimoku-Multi-Programmer-Online"> the Github Repository</a>.
+<hr>
+<h2>Contact</h2>
+<p>Any questions or comments send email to: rdegraci@gmail.com
+
+<p>August 1st, 2009
+
