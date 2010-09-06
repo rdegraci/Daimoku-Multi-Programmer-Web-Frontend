@@ -1,4 +1,8 @@
 class SimplacesController < ApplicationController
+  
+  # Model Security
+  filter_resource_access
+  
   # GET /simplaces
   # GET /simplaces.xml
   def index

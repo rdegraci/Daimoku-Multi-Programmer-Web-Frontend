@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
 
-
+  filter_resource_access
+  
+  #filter_access_to :show, :edit, :update, :destroy, :attribute_check => true
+  
   # GET /simwests
   # GET /simwests.xml
   def index
@@ -38,7 +41,7 @@ class UsersController < ApplicationController
   # POST /users.xml
   def create
     @user = User.new(params[:user])
-    
+    @user.roles.create(:title => "guest")
       if @user.save
         flash[:notice] = 'Registration successful.'
         redirect_to login_url
@@ -56,16 +59,13 @@ class UsersController < ApplicationController
   # PUT /users/1.xml
   def update
     @user = current_user
-    
-    respond_to do |format|
       if @user.update_attributes(params[:user])
         flash[:notice] = "Successfully updated profile."
         redirect_to root_url
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+        render :action => "edit" 
       end
-    end
+
   end
 
   # DELETE /users/1

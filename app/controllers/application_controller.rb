@@ -9,9 +9,21 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
   
   filter_parameter_logging :password
+  
+  
+  # To use model security, add a before_filter that sets the user globally to your ApplicationController. This is thread-safe.
+  before_filter :set_current_user
 
   helper_method :current_user
 
+
+  
+  protected
+
+  def set_current_user
+    Authorization.current_user = current_user
+  end
+  
   private
 
   def current_user_session

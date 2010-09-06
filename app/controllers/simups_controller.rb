@@ -1,4 +1,8 @@
 class SimupsController < ApplicationController
+  
+  # Model Security
+  filter_resource_access
+  
   # GET /simups
   # GET /simups.xml
   def index

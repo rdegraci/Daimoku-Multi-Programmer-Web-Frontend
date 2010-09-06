@@ -1,4 +1,8 @@
 class SimwestsController < ApplicationController
+  
+  # Model Security
+  filter_resource_access
+  
   # GET /simwests
   # GET /simwests.xml
   def index

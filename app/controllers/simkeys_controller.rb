@@ -1,4 +1,8 @@
 class SimkeysController < ApplicationController
+  
+  # Model Security
+  filter_resource_access
+  
   # GET /simkeys
   # GET /simkeys.xml
   def index

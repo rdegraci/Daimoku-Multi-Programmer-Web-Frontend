@@ -1,4 +1,8 @@
 class SimthingsController < ApplicationController
+  
+  # Model Security
+  filter_resource_access
+  
   # GET /simthings
   # GET /simthings.xml
   def index

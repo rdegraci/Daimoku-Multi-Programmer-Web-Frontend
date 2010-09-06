@@ -1,4 +1,8 @@
 class SimplayersController < ApplicationController
+  
+  # Model Security
+  filter_resource_access
+  
   # GET /simplayers
   # GET /simplayers.xml
   def index
