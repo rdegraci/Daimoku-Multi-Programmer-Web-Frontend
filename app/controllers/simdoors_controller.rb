@@ -1,4 +1,8 @@
 class SimdoorsController < ApplicationController
+  
+  # Model Security
+  filter_resource_access
+  
   # GET /simdoors
   # GET /simdoors.xml
   def index

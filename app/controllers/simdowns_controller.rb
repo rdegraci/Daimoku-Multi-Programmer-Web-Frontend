@@ -1,4 +1,8 @@
 class SimdownsController < ApplicationController
+  
+  # Model Security
+  filter_resource_access
+  
   # GET /simdowns
   # GET /simdowns.xml
   def index

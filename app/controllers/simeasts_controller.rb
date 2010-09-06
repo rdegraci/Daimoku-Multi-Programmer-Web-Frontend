@@ -1,4 +1,8 @@
 class SimeastsController < ApplicationController
+  
+  # Model Security
+  filter_resource_access
+  
   # GET /simeasts
   # GET /simeasts.xml
   def index

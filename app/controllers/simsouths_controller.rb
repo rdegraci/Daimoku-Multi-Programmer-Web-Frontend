@@ -1,4 +1,8 @@
 class SimsouthsController < ApplicationController
+  
+  # Model Security
+  filter_resource_access
+  
   # GET /simsouths
   # GET /simsouths.xml
   def index

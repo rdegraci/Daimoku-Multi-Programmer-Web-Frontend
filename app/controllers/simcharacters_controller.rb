@@ -1,4 +1,8 @@
 class SimcharactersController < ApplicationController
+  
+  # Model Security
+  filter_resource_access
+  
   # GET /simcharacters
   # GET /simcharacters.xml
   def index

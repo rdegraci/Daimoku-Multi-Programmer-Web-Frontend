@@ -1,4 +1,9 @@
 class SimmapsController < ApplicationController
+  
+  # Model Security
+  filter_resource_access
+  
+  
   # GET /simmaps
   # GET /simmaps.xml
   def index

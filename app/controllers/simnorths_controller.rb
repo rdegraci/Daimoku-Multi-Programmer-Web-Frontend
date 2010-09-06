@@ -1,4 +1,9 @@
 class SimnorthsController < ApplicationController
+  
+  # Model Security
+  filter_resource_access
+  
+  
   # GET /simnorths
   # GET /simnorths.xml
   def index
