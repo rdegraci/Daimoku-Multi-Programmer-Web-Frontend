@@ -1,6 +1,7 @@
 authorization do
   role :admin do
     has_permission_on [:users ], :to => [:index, :show, :new, :create, :edit, :update, :destroy]
+    has_permission_on [:user_sessions ], :to => [:index, :show, :new, :create, :edit, :update, :destroy]
     has_permission_on [:simcharacters ], :to => [:index, :show, :new, :create, :edit, :update, :destroy]
     has_permission_on [:simdoors ], :to => [:index, :show, :new, :create, :edit, :update, :destroy]
     has_permission_on [:simdowns ], :to => [:index, :show, :new, :create, :edit, :update, :destroy]
@@ -18,10 +19,17 @@ authorization do
   end
   
   role :guest do
-    has_permission_on [:users ], :to => [:site_home] 
+    
+    # login/logout
+    has_permission_on [:user_sessions ], :to => [:new, :create, :destroy]
+    
+    # registration
+    has_permission_on [:users ], :to => [:new, :create]
+    
     has_permission_on [:users ], :to => [:show, :edit, :update, :destroy] do
       if_attribute :id => is { user.id}
     end
+    
     has_permission_on [:simcharacters ], :to => [:index, :show]
     has_permission_on [:simdoors ], :to => [:index, :show]
     has_permission_on [:simkeys ], :to => [:index, :show]

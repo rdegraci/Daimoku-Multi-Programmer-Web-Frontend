@@ -2,8 +2,6 @@ class UsersController < ApplicationController
 
   filter_resource_access
   
-  #filter_access_to :show, :edit, :update, :destroy, :attribute_check => true
-  
   # GET /simwests
   # GET /simwests.xml
   def index
@@ -41,8 +39,8 @@ class UsersController < ApplicationController
   # POST /users.xml
   def create
     @user = User.new(params[:user])
-    @user.roles.create(:title => "guest")
       if @user.save
+        @user.roles.create(:title => "guest")
         flash[:notice] = 'Registration successful.'
         redirect_to login_url
       else
@@ -79,8 +77,5 @@ class UsersController < ApplicationController
     redirect_to root_url
 
   end
-  
-  def site_home
-  end
-  
+    
 end
