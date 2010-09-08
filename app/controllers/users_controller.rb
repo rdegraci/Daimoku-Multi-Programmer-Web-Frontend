@@ -40,7 +40,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
       if @user.save
-        @user.roles.create(:title => "guest")
+        @user.roles.create(:title => "user")
         flash[:notice] = 'Registration successful.'
         redirect_to login_url
       else

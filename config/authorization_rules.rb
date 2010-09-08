@@ -17,7 +17,25 @@ authorization do
     has_permission_on [:simwests ], :to => [:index, :show, :new, :create, :edit, :update, :destroy]
     
   end
-  
+
+  role :user do
+    includes :guest
+    
+    has_permission_on [:simcharacters ], :to => [:index, :show]
+    has_permission_on [:simdoors ], :to => [:index, :show]
+    has_permission_on [:simkeys ], :to => [:index, :show]
+    has_permission_on [:simmaps ], :to => [:index, :show]
+    has_permission_on [:simpeople ], :to => [:index, :show]
+    has_permission_on [:simplaces ], :to => [:index, :show]
+    has_permission_on [:simthings ], :to => [:index, :show]
+    
+    has_permission_on [:sim_modules ], :to => [:index, :show]
+    has_permission_on [:sim_klasses ], :to => [:index, :show]
+    has_permission_on [:sim_variables ], :to => [:index, :show]
+    has_permission_on [:sim_scripts ], :to => [:index, :show]
+    
+  end
+      
   role :guest do
     
     # login/logout
@@ -29,14 +47,6 @@ authorization do
     has_permission_on [:users ], :to => [:show, :edit, :update, :destroy] do
       if_attribute :id => is { user.id}
     end
-    
-    has_permission_on [:simcharacters ], :to => [:index, :show]
-    has_permission_on [:simdoors ], :to => [:index, :show]
-    has_permission_on [:simkeys ], :to => [:index, :show]
-    has_permission_on [:simmaps ], :to => [:index, :show]
-    has_permission_on [:simpeople ], :to => [:index, :show]
-    has_permission_on [:simplaces ], :to => [:index, :show]
-    has_permission_on [:simthings ], :to => [:index, :show]
   end
   
 end
