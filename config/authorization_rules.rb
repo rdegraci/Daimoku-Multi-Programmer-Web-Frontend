@@ -29,10 +29,10 @@ authorization do
     has_permission_on [:simplaces ], :to => [:index, :show]
     has_permission_on [:simthings ], :to => [:index, :show]
     
-    has_permission_on [:sim_modules ], :to => [:index, :show]
-    has_permission_on [:sim_klasses ], :to => [:index, :show]
-    has_permission_on [:sim_variables ], :to => [:index, :show]
-    has_permission_on [:sim_scripts ], :to => [:index, :show]
+    has_permission_on [:sim_modules ], :to => [:index, :show, :new, :create, :edit, :update]
+    has_permission_on [:sim_klasses ], :to => [:index, :show, :new, :create, :edit, :update]
+    has_permission_on [:sim_variables ], :to => [:index, :show, :new, :create, :edit, :update]
+    has_permission_on [:sim_scripts ], :to => [:index, :show, :new, :create, :edit, :update]
     
   end
       
