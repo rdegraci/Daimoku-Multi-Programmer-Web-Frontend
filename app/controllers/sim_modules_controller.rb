@@ -1,4 +1,8 @@
 class SimModulesController < ApplicationController
+  
+  # Model Security
+  filter_resource_access
+  
   # GET /sim_modules
   # GET /sim_modules.xml
   def index

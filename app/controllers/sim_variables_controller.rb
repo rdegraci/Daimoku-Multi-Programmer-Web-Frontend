@@ -1,4 +1,9 @@
 class SimVariablesController < ApplicationController
+  
+  # Model Security
+  filter_resource_access
+  
+  
   # GET /sim_variables
   # GET /sim_variables.xml
   def index

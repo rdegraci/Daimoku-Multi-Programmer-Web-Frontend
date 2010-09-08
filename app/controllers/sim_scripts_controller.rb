@@ -1,4 +1,9 @@
 class SimScriptsController < ApplicationController
+  
+  # Model Security
+  filter_resource_access
+  
+  
   # GET /sim_scripts
   # GET /sim_scripts.xml
   def index
