@@ -1,4 +1,4 @@
-require '/usr/local/Daimoku-Server/support.rb'
+require '/usr/local/daimoku-server/support.rb'
 
 class Simthing < ActiveRecord::Base
   belongs_to :simperson

@@ -4,6 +4,43 @@
   <%= f.error_messages %>
 
   <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :script %><br />
+    <%= f.text_area :script %>
+  </p>
+
+  <p>
+    <%= f.label :strength %><br />
+    <%= f.text_area :strength %>
+  </p>
+  <p>
+    <%= f.label :weight %><br />
+    <%= f.text_area :weight %>
+  </p>
+
+  <p> <%= f.radio_button :portable, "true" %>True </p>
+  <p> <%= f.radio_button :portable, "false" %>False </p>
+
+  <p> <%= f.radio_button :visible, "true" %>True </p>
+  <p> <%= f.radio_button :visible, "false" %>False </p>
+
+  <p> <%= f.radio_button :container, "true" %>True </p>
+  <p> <%= f.radio_button :container, "false" %>False </p>
+
+  <p> <%= f.radio_button :platform, "true" %>True </p>
+  <p> <%= f.radio_button :platform, "false" %>False </p>
+
+  <p> <%= f.radio_button :clothing, "true" %>True </p>
+  <p> <%= f.radio_button :clothing, "false" %>False </p>
+
+  <p>
     <%= f.submit 'Update' %>
   </p>
 <% end %>

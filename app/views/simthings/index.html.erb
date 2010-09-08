@@ -2,10 +2,34 @@
 
 <table>
   <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Script</th>
+    <th>Creator</th>
+	<th>Unique Id</th>
+    <th>Strength</th>
+    <th>Weight</th>
+    <th>Portable</th>
+    <th>Visible</th>
+    <th>Container</th>
+    <th>Platform</th>
+    <th>Clothing</th>
   </tr>
 
 <% @simthings.each do |simthing| %>
   <tr>
+	<td><%=h simthing.name %></td>
+	<td><%=h simthing.description %></td>
+	<td><%=h simthing.script %></td>
+	<td><%=h simthing.creatorname %></td>
+	<td><%=h simthing.uniqueid %></td>
+	<td><%=h simthing.strength %></td>
+	<td><%=h simthing.weight %></td>
+	<td><%=h simthing.portable %></td>
+	<td><%=h simthing.visible %></td>
+	<td><%=h simthing.container %></td>
+	<td><%=h simthing.platform %></td>
+	<td><%=h simthing.clothing %></td>
     <td><%= link_to 'Show', simthing %></td>
     <td><%= link_to 'Edit', edit_simthing_path(simthing) %></td>
     <td><%= link_to 'Destroy', simthing, :confirm => 'Are you sure?', :method => :delete %></td>
