@@ -16,4 +16,106 @@
   </p>
 <% end %>
 
-<%= link_to 'Home', users_path %>
+<fieldset>
+	<legend>Players</legend>
+	<table>
+	  <tr>
+	    <th>Name</th>
+	    <th>Online</th>
+	  </tr>
+
+	<% @simplayers.each do |simplayer| %>
+	  <tr>
+	    <td><%=h simplayer.name %></td>
+	    <td><%=h simplayer.online %></td>
+	  </tr>
+	<% end %>
+	</table>
+	</fieldset>
+	
+	
+	<fieldset>
+		<legend>Characters</legend>
+		<table>
+		  <tr>
+		    <th>Name</th>
+		    <th>Cclass</th>
+		    <th>Race</th>
+		    <th>Description</th>
+		    <th>Level</th>
+		    <th>Exp</th>
+		    <th>Ac</th>
+		    <th>Hp</th>
+		    <th>Sp</th>
+		    <th>Constitution</th>
+		    <th>Size</th>
+		    <th>Dexterity</th>
+		    <th>Strength</th>
+		    <th>Intelligence</th>
+		    <th>Wisdom</th>
+		    <th>Charisma</th>
+		    <th>Moneybag</th>
+		  </tr>
+
+		<% @simcharacters.each do |simcharacter| %>
+		  <tr>
+		    <td><%=h simcharacter.name %></td>
+		    <td><%=h simcharacter.cclass %></td>
+		    <td><%=h simcharacter.race %></td>
+		    <td><%=h simcharacter.description %></td>
+		    <td><%=h simcharacter.level %></td>
+		    <td><%=h simcharacter.exp %></td>
+		    <td><%=h simcharacter.ac %></td>
+		    <td><%=h simcharacter.hp %></td>
+		    <td><%=h simcharacter.sp %></td>
+		    <td><%=h simcharacter.constitution %></td>
+		    <td><%=h simcharacter.size %></td>
+		    <td><%=h simcharacter.dexterity %></td>
+		    <td><%=h simcharacter.strength %></td>
+		    <td><%=h simcharacter.intelligence %></td>
+		    <td><%=h simcharacter.wisdom %></td>
+		    <td><%=h simcharacter.charisma %></td>
+		    <td><%=h simcharacter.moneybag %></td>
+		  </tr>
+		<% end %>
+		</table>
+		</fieldset>
+		
+		<fieldset>
+			<legend>Things</legend>
+			<table>
+			  <tr>
+			    <th>Name</th>
+			    <th>Description</th>
+			    <th>Script</th>
+			    <th>Creator</th>
+			    <th>Strength</th>
+			    <th>Weight</th>
+			    <th>Portable</th>
+			    <th>Visible</th>
+			    <th>Container</th>
+			    <th>Platform</th>
+			    <th>Clothing</th>
+			  </tr>
+
+			<% @simthings.each do |simthing| %>
+			  <tr>
+				<td><%=h simthing.name %></td>
+				<td><%=h simthing.description %></td>
+				<td><%=h simthing.script %></td>
+				<td><%=h simthing.creatorname %></td>
+				<td><%=h simthing.strength %></td>
+				<td><%=h simthing.weight %></td>
+				<td><%=h simthing.portable %></td>
+				<td><%=h simthing.visible %></td>
+				<td><%=h simthing.container %></td>
+				<td><%=h simthing.platform %></td>
+				<td><%=h simthing.clothing %></td>
+			    <td><%= link_to 'Show', simthing %></td>
+			    <td><%= link_to 'Edit', edit_simthing_path(simthing) %></td>
+			    <td><%= link_to 'Destroy', simthing, :confirm => 'Are you sure?', :method => :delete %></td>
+			  </tr>
+			<% end %>
+			</table>
+			</fieldset>
+	
