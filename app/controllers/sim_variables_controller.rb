@@ -49,6 +49,7 @@ class SimVariablesController < ApplicationController
 
     respond_to do |format|
       if @sim_variable.save
+        @sim_variable.load_variable @sim_variable.name
         flash[:notice] = 'SimVariable was successfully created.'
         format.html { redirect_to(@sim_variable) }
         format.xml  { render :xml => @sim_variable, :status => :created, :location => @sim_variable }
@@ -66,6 +67,7 @@ class SimVariablesController < ApplicationController
 
     respond_to do |format|
       if @sim_variable.update_attributes(params[:sim_variable])
+        @sim_variable.reload_variable
         flash[:notice] = 'SimVariable was successfully updated.'
         format.html { redirect_to(@sim_variable) }
         format.xml  { head :ok }

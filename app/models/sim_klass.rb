@@ -19,4 +19,15 @@ class SimKlass < ActiveRecord::Base
     @@matrix.eval("#{source}") if @@matrix.eval("#{importscript}")
   end
   
+  def self.reload_klass
+        
+    import_source = %{
+      #{importscript}
+    }
+    klass_source = %{
+      #{source}
+    }
+    @@matrix.eval("#{klass_source}") if @@matrix.eval("#{import_source}")
+  end
+  
 end

@@ -19,4 +19,15 @@ class SimModule < ActiveRecord::Base
     @@matrix.eval("#{source}") if @@matrix.eval("#{importscript}")
   end
   
+  def self.reload_module 
+    
+    module_importscript = %{
+      #{importscript}
+    }
+    module_source = %{
+      #{source}
+    }
+    @@matrix.eval("#{module_source}") if @@matrix.eval("#{module_importscript}")
+  end
+  
 end

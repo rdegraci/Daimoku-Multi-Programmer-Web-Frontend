@@ -48,6 +48,7 @@ class SimModulesController < ApplicationController
 
     respond_to do |format|
       if @sim_module.save
+        @sim_module.load_module @sim_module.name
         flash[:notice] = 'SimModule was successfully created.'
         format.html { redirect_to(@sim_module) }
         format.xml  { render :xml => @sim_module, :status => :created, :location => @sim_module }
@@ -65,6 +66,7 @@ class SimModulesController < ApplicationController
 
     respond_to do |format|
       if @sim_module.update_attributes(params[:sim_module])
+        @sim_module.reload_module
         flash[:notice] = 'SimModule was successfully updated.'
         format.html { redirect_to(@sim_module) }
         format.xml  { head :ok }

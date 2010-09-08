@@ -48,6 +48,7 @@ class SimKlassesController < ApplicationController
 
     respond_to do |format|
       if @sim_klass.save
+        @sim_klass.load_klass @sim_klass.name
         flash[:notice] = 'SimKlass was successfully created.'
         format.html { redirect_to(@sim_klass) }
         format.xml  { render :xml => @sim_klass, :status => :created, :location => @sim_klass }
@@ -65,6 +66,7 @@ class SimKlassesController < ApplicationController
 
     respond_to do |format|
       if @sim_klass.update_attributes(params[:sim_klass])
+        @sim_klass.reload_klass
         flash[:notice] = 'SimKlass was successfully updated.'
         format.html { redirect_to(@sim_klass) }
         format.xml  { head :ok }
