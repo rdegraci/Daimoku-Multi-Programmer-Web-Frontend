@@ -19,7 +19,7 @@ class SimVariable < ActiveRecord::Base
     @@matrix.eval("#{name}=#{value}") if @@matrix.eval("#{importscript}")
   end
   
-  def self.reload_variable
+  def reload_variable
     variable_importscript = %{
       #{importscript}
     }

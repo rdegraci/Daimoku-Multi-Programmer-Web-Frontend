@@ -15,7 +15,7 @@ class SimScript < ActiveRecord::Base
     @@matrix.eval("#{source}")
   end
 
-  def self.reload_script     
+  def reload_script     
     script_source = %{
       #{source}
     }

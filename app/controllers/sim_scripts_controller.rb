@@ -49,7 +49,7 @@ class SimScriptsController < ApplicationController
 
     respond_to do |format|
       if @sim_script.save
-        @sim_script.load_script @sim_script.name
+        SimScript::load_script @sim_script.name
         flash[:notice] = 'SimScript was successfully created.'
         format.html { redirect_to(@sim_script) }
         format.xml  { render :xml => @sim_script, :status => :created, :location => @sim_script }
