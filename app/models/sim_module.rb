@@ -1,12 +1,12 @@
 class SimModule < ActiveRecord::Base
   
+  # Daimoku Multi-Programmer
   def self.sandbox= sb
     @@matrix = sb
   end
   
-  
+  # Daimoku Multi-Programmer
   def self.load_module name
-    
     mmodule = find(:first, :conditions => ['name = ?', name])
     return if !mmodule
     
@@ -18,16 +18,11 @@ class SimModule < ActiveRecord::Base
     }
     @@matrix.eval("#{source}") if @@matrix.eval("#{importscript}")
   end
-  
-  def reload_module 
     
-    module_importscript = %{
-      #{importscript}
-    }
-    module_source = %{
-      #{source}
-    }
-    @@matrix.eval("#{module_source}") if @@matrix.eval("#{module_importscript}")
+  # Tell Daimoku Multi-Programmer to reload this object's source
+  def reload_source
+    start_server
+    @hub.reload(to_s,name)
   end
   
 end

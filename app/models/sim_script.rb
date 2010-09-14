@@ -1,10 +1,11 @@
 class SimScript < ActiveRecord::Base
   
+  # Daimoku Multi-Programmer
   def self.sandbox= sb
     @@matrix = sb
   end
   
-  
+  # Daimoku Multi-Programmer
   def self.load_script name
     script = find(:first, :conditions => ['name = ?', name])
     return if !script
@@ -14,12 +15,11 @@ class SimScript < ActiveRecord::Base
     }
     @@matrix.eval("#{source}")
   end
-
-  def reload_script     
-    script_source = %{
-      #{source}
-    }
-    @@matrix.eval("#{script_source}")
+  
+  # Tell Daimoku Multi-Programmer to reload this object's source
+  def reload_source
+    start_server
+    @hub.reload(to_s,name)
   end
   
 end

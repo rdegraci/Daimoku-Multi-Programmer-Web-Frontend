@@ -1,12 +1,12 @@
 class SimVariable < ActiveRecord::Base
   
+  # Daimoku Multi-Programmer
   def self.sandbox= sb
     @@matrix = sb
   end
   
-  
+  # Daimoku Multi-Programmer
   def self.load_variable name
-    
     variable = find(:first, :conditions => ['name = ?', name])
     return if !variable
     
@@ -19,14 +19,10 @@ class SimVariable < ActiveRecord::Base
     @@matrix.eval("#{name}=#{value}") if @@matrix.eval("#{importscript}")
   end
   
-  def reload_variable
-    variable_importscript = %{
-      #{importscript}
-    }
-    variable_value = %{
-      #{value}
-    }
-    @@matrix.eval("#{name}=#{variable_value}") if @@matrix.eval("#{variable_importscript}")
+  # Tell Daimoku Multi-Programmer to reload this object's source
+  def reload_source
+    start_server
+    @hub.reload(to_s,name)
   end
   
 end
