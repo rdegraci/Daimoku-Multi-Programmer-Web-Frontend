@@ -25,8 +25,12 @@ class SimVariable < ActiveRecord::Base
   
   # Tell Daimoku Multi-Programmer to reload this object's source
   def reload_source
-    start_server
-    @hub.reload("SimVariable",name)
+    begin
+      start_server
+      @hub.reload("SimVariable",name)
+    rescue
+      @hub = nil
+    end
   end
   
 end
