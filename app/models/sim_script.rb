@@ -1,4 +1,8 @@
+require '/usr/local/daimoku-rails/app/helpers/sim_scripts_helper.rb'
+
 class SimScript < ActiveRecord::Base
+  
+  include SimScriptsHelper
   
   # Daimoku Multi-Programmer
   def self.sandbox= sb
@@ -8,18 +12,23 @@ class SimScript < ActiveRecord::Base
   # Daimoku Multi-Programmer
   def self.load_script name
     script = find(:first, :conditions => ['name = ?', name])
-    return if !script
-    
+    if !script
+      puts "Did not locate script=#{name}!"
+      return
+    end
+
     source = %{
       #{script.source}
     }
+    puts "Found script=#{name}"
+    puts "Source = #{source}"
     @@matrix.eval("#{source}")
   end
   
   # Tell Daimoku Multi-Programmer to reload this object's source
   def reload_source
     start_server
-    @hub.reload(to_s,name)
+    @hub.reload("SimScript",name)
   end
   
 end

@@ -49,7 +49,7 @@ class SimScriptsController < ApplicationController
 
     respond_to do |format|
       if @sim_script.save
-        SimScript::load_script @sim_script.name
+        @sim_script.reload_source
         flash[:notice] = 'SimScript was successfully created.'
         format.html { redirect_to(@sim_script) }
         format.xml  { render :xml => @sim_script, :status => :created, :location => @sim_script }
@@ -67,7 +67,7 @@ class SimScriptsController < ApplicationController
 
     respond_to do |format|
       if @sim_script.update_attributes(params[:sim_script])
-        @sim_klass.reload_script
+        @sim_script.reload_source
         flash[:notice] = 'SimScript was successfully updated.'
         format.html { redirect_to(@sim_script) }
         format.xml  { head :ok }

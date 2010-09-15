@@ -25,8 +25,12 @@ class SimKlass < ActiveRecord::Base
   
   # Tell Daimoku Multi-Programmer to reload this object's source
   def reload_source
+    begin
     start_server
-    @hub.reload(to_s,name)
+    @hub.reload("SimKlass",name)
+    rescue
+      @hub = nil
+    end
   end
   
 end

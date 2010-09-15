@@ -1,4 +1,8 @@
+require '/usr/local/daimoku-rails/app/helpers/sim_variables_helper.rb'
+
 class SimVariable < ActiveRecord::Base
+  
+  include SimVariablesHelper
   
   # Daimoku Multi-Programmer
   def self.sandbox= sb
@@ -22,7 +26,7 @@ class SimVariable < ActiveRecord::Base
   # Tell Daimoku Multi-Programmer to reload this object's source
   def reload_source
     start_server
-    @hub.reload(to_s,name)
+    @hub.reload("SimVariable",name)
   end
   
 end
