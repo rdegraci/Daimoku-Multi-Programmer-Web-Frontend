@@ -1,12 +1,16 @@
+require '/usr/local/daimoku-rails/app/helpers/sim_klasses_helper.rb'
+
 class SimKlass < ActiveRecord::Base
   
+  include SimKlassesHelper
+  
+  # Daimoku Multi-Programmer
   def self.sandbox= sb
     @@matrix = sb
   end
   
-  
+  # Daimoku Multi-Programmer
   def self.load_klass name
-    
     klass = find(:first, :conditions => ['name = ?', name])
     return if !klass
     
@@ -19,15 +23,14 @@ class SimKlass < ActiveRecord::Base
     @@matrix.eval("#{source}") if @@matrix.eval("#{importscript}")
   end
   
-  def reload_klass
-        
-    import_source = %{
-      #{importscript}
-    }
-    klass_source = %{
-      #{source}
-    }
-    @@matrix.eval("#{klass_source}") if @@matrix.eval("#{import_source}")
+  # Tell Daimoku Multi-Programmer to reload this object's source
+  def reload_source
+    begin
+    start_server
+    @hub.reload("SimKlass",name)
+    rescue
+      @hub = nil
+    end
   end
   
 end
