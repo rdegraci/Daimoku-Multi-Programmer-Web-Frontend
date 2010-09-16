@@ -1,6 +1,6 @@
 <h1>Editing sim_script</h1>
 
-<% form_for(@sim_script) do |f| %>
+<% form_for([@user, @sim_script]) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -20,5 +20,5 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', @sim_script %> |
-<%= link_to 'Back', sim_scripts_path %>
+<%= link_to 'Show', user_sim_script_path(@user, @sim_script) %> |
+<%= link_to 'Back', user_sim_scripts_path(@user) %>

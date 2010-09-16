@@ -1,6 +1,6 @@
 <h1>Editing sim_variable</h1>
 
-<% form_for(@sim_variable) do |f| %>
+<% form_for([@user, @sim_variable]) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -20,5 +20,5 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', @sim_variable %> |
-<%= link_to 'Back', sim_variables_path %>
+<%= link_to 'Show', user_sim_variable_path(@user, @sim_variable) %> |
+<%= link_to 'Back', user_sim_variables_path(@user) %>

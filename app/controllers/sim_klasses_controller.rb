@@ -3,10 +3,12 @@ class SimKlassesController < ApplicationController
   # Model Security
   filter_resource_access
   
+  before_filter :find_user
+  
   # GET /sim_klasses
   # GET /sim_klasses.xml
   def index
-    @sim_klasses = SimKlass.all
+    @sim_klasses = @user.sim_klasses
 
     respond_to do |format|
       format.html # index.html.erb
@@ -48,9 +50,11 @@ class SimKlassesController < ApplicationController
 
     respond_to do |format|
       if @sim_klass.save
-       @sim_klass.reload_source
+        @user.sim_klasses << @sim_klass
+        @user.save
+        @sim_klass.reload_source
         flash[:notice] = 'SimKlass was successfully created.'
-        format.html { redirect_to(@sim_klass) }
+        format.html { redirect_to user_sim_klass_path(@user,@sim_klass) }
         format.xml  { render :xml => @sim_klass, :status => :created, :location => @sim_klass }
       else
         format.html { render :action => "new" }
@@ -68,7 +72,7 @@ class SimKlassesController < ApplicationController
       if @sim_klass.update_attributes(params[:sim_klass])
         @sim_klass.reload_source
         flash[:notice] = 'SimKlass was successfully updated.'
-        format.html { redirect_to(@sim_klass) }
+        format.html { redirect_to user_sim_klass_path(@user, @sim_klass) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -84,8 +88,20 @@ class SimKlassesController < ApplicationController
     @sim_klass.destroy
 
     respond_to do |format|
-      format.html { redirect_to(sim_klasses_url) }
+      format.html { redirect_to user_sim_klasses_path(@user) }
       format.xml  { head :ok }
+    end
+  end
+  
+  private
+  
+  def find_user
+    @user_id = params[:user_id]
+    
+    if @user_id == nil
+      redirect_to users_url
+    else
+      @user = User.find(@user_id)
     end
   end
 end

@@ -18,3 +18,9 @@
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Users', users_path %>
 <%= link_to 'Logout', logout_path %>
+
+<hr>
+<%= link_to "Scripts", user_sim_scripts_path(@user) %> |
+<%= link_to "Classes", user_sim_klasses_path(@user) %> |
+<%= link_to "Modules", user_sim_modules_path(@user) %> |
+<%= link_to "Variables", user_sim_variables_path(@user) %> 

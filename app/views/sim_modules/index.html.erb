@@ -8,13 +8,14 @@
 <% @sim_modules.each do |sim_module| %>
   <tr>
     <td><%=h sim_module.name %></td>
-    <td><%= link_to 'Show', sim_module %></td>
-    <td><%= link_to 'Edit', edit_sim_module_path(sim_module) %></td>
-    <td><%= link_to 'Destroy', sim_module, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', user_sim_module_path(@user, sim_module) %></td>
+    <td><%= link_to 'Edit', edit_user_sim_module_path(@user, sim_module) %></td>
+    <td><%= link_to 'Destroy', user_sim_module_path(@user, sim_module), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New sim_module', new_sim_module_path %>
+<%= link_to 'New sim_module', new_user_sim_module_path(@user) %> |
+<%= link_to 'User Homepage', user_path(@user) %>

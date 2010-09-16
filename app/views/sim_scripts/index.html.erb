@@ -10,13 +10,14 @@
   <tr>
     <td><%=h sim_script.name %></td>
     <td><%=h sim_script.comment %></td>
-    <td><%= link_to 'Show', sim_script %></td>
-    <td><%= link_to 'Edit', edit_sim_script_path(sim_script) %></td>
-    <td><%= link_to 'Destroy', sim_script, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', user_sim_script_path(@user, sim_script) %></td>
+    <td><%= link_to 'Edit', edit_user_sim_script_path(@user, sim_script) %></td>
+    <td><%= link_to 'Destroy', user_sim_script_path(@user, sim_script), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New sim_script', new_sim_script_path %>
+<%= link_to 'New sim_script', new_user_sim_script_path(@user) %> |
+<%= link_to 'User Homepage', user_path(@user) %>

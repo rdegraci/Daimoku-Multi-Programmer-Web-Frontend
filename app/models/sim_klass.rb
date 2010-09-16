@@ -4,6 +4,8 @@ class SimKlass < ActiveRecord::Base
   
   include SimKlassesHelper
   
+  belongs_to :user
+  
   # Daimoku Multi-Programmer
   def self.sandbox= sb
     @@matrix = sb

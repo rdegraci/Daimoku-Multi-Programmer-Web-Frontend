@@ -4,9 +4,9 @@ require '/usr/local/Daimoku-Rails/app/models/simplayer.rb'
 class Simcharacter < ActiveRecord::Base
   
   belongs_to :simplayer
-  
   has_one :simperson, :dependent => :delete
-
+  belongs_to :user
+  
   # validates_associated :Simperson
   # 
   # validates_length_of :name, :maximum=>30

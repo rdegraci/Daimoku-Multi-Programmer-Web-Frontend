@@ -1,6 +1,6 @@
 <h1>Editing sim_module</h1>
 
-<% form_for(@sim_module) do |f| %>
+<% form_for([@user, @sim_module]) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -20,5 +20,5 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', @sim_module %> |
-<%= link_to 'Back', sim_modules_path %>
+<%= link_to 'Show', user_sim_module_path(@user, @sim_module)%> |
+<%= link_to 'Back', user_sim_modules_path(@user) %>

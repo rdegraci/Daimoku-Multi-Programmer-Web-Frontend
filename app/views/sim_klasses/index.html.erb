@@ -8,13 +8,14 @@
 <% @sim_klasses.each do |sim_klass| %>
   <tr>
     <td><%=h sim_klass.name %></td>
-    <td><%= link_to 'Show', sim_klass %></td>
-    <td><%= link_to 'Edit', edit_sim_klass_path(sim_klass) %></td>
-    <td><%= link_to 'Destroy', sim_klass, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', user_sim_klass_path(@user, sim_klass) %></td>
+    <td><%= link_to 'Edit', edit_user_sim_klass_path(@user, sim_klass) %></td>
+    <td><%= link_to 'Destroy', user_sim_klass_path(@user, sim_klass), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New sim_klass', new_sim_klass_path %>
+<%= link_to 'New sim_klass', new_user_sim_klass_path(@user) %> |
+<%= link_to 'User Homepage', user_path(@user) %>

@@ -1,37 +1,29 @@
 ActionController::Routing::Routes.draw do |map|
+  
+  map.resources :users do |user|
+    user.resources :sim_scripts
+    user.resources :sim_variables
+    user.resources :sim_klasses
+    user.resources :sim_modules
+  end
 
-  map.resources :sim_scripts
-
-  map.resources :sim_variables
+  map.resources :user_sessions
+  
+  map.resources :simplayers
+  
+  map.resources :simthings
+  
+  map.resources :simplaces
 
   map.resources :simpeople
 
   map.resources :simcharacters
 
-  map.resources :sim_klasses
-
-  map.resources :simplayers
-
-  map.resources :sim_modules
-
-  map.resources :user_sessions
-
-  map.resources :users
-
-
   map.resources :simwests
 
   map.resources :simups
 
-  map.resources :simthings
-
   map.resources :simsouths
-
-  map.resources :simplayers
-
-  map.resources :simplaces
-
-  map.resources :simpeople
 
   map.resources :simnorths
 
@@ -45,7 +37,6 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :simdoors
 
-  map.resources :simcharacters
   
   map.register "register", :controller => "users", :action => "new"
   map.login "login", :controller => "user_sessions", :action => "new"

@@ -4,6 +4,8 @@ class SimScript < ActiveRecord::Base
   
   include SimScriptsHelper
   
+  belongs_to :user
+  
   # Daimoku Multi-Programmer
   def self.sandbox= sb
     @@matrix = sb
