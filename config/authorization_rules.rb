@@ -35,31 +35,26 @@ authorization do
     has_permission_on [:simplaces ], :to => [:index, :show]
     has_permission_on [:simthings ], :to => [:index, :show]
     
-    has_permission_on [:sim_modules ], :to => [:index, :new,  :create] do
-      if_attribute :user_id => is {user.id}
-    end
-    has_permission_on [:sim_modules ], :to => [:show, :edit, :update] do
+    has_permission_on [:sim_modules ], :to => [:index, :new,  :create]
+    
+    has_permission_on [:sim_modules ], :to => [:show, :edit, :update, :destroy] do
       if_attribute :user_id => is { user.id}
     end
      
-    has_permission_on [:sim_klasses ], :to => [:index, :new,  :create] do
-      if_attribute :user_id => is {user.id}
-    end
-    has_permission_on [:sim_klasses ], :to => [:show, :edit, :update] do
+    has_permission_on [:sim_klasses ], :to => [:index, :new,  :create] 
+    has_permission_on [:sim_klasses ], :to => [:show, :edit, :update, :destroy] do
       if_attribute :user_id => is { user.id}
     end
     
-    has_permission_on [:sim_variables ], :to => [:index, :new,  :create] do
-      if_attribute :user_id => is {user.id}
-    end
-    has_permission_on [:sim_variables ], :to => [:show, :edit, :update] do
+    has_permission_on [:sim_variables ], :to => [:index, :new,  :create]
+    
+    has_permission_on [:sim_variables ], :to => [:show, :edit, :update, :destroy] do
       if_attribute :user_id => is { user.id}
     end
     
-    has_permission_on [:sim_scripts ], :to => [:index, :new,  :create ] do
-      if_attribute :user_id => is {user.id}
-    end
-    has_permission_on [:sim_scripts ], :to => [:show, :edit, :update] do
+    has_permission_on [:sim_scripts ], :to => [:index, :new,  :create ] 
+    
+    has_permission_on [:sim_scripts ], :to => [:show, :edit, :update, :destroy] do
       if_attribute :user_id => is { user.id}
     end
 
