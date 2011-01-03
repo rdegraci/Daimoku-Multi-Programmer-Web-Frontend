@@ -5,6 +5,7 @@ class SimKlass < ActiveRecord::Base
   include SimKlassesHelper
   
   belongs_to :user
+  validates_uniqueness_of :name, :scope => :user_id
   
   # Daimoku Multi-Programmer
   def self.sandbox= sb

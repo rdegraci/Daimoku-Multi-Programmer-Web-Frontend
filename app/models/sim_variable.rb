@@ -5,6 +5,7 @@ class SimVariable < ActiveRecord::Base
   include SimVariablesHelper
   
   belongs_to :user
+  validates_uniqueness_of :name, :scope => :user_id
   
   # Daimoku Multi-Programmer
   def self.sandbox= sb
