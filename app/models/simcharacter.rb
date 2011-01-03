@@ -1,5 +1,5 @@
-require '/usr/local/Daimoku-Rails/app/models/simperson.rb'
-require '/usr/local/Daimoku-Rails/app/models/simplayer.rb'
+require '/usr/local/daimoku-rails/app/models/simperson.rb'
+require '/usr/local/daimoku-rails/app/models/simplayer.rb'
 
 class Simcharacter < ActiveRecord::Base
   
